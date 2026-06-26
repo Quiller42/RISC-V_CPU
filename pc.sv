@@ -5,7 +5,7 @@ module program_counter (
     output logic [31:0] pc_out // current address output
 );
 
-always_ff @(posedge clk or negedge rst_n) begin
+always_ff @(posedge clk) begin
     if (!rst_n) begin
         pc_out <= 32'h0000_0000; // reset to 0 on startup
     end else begin

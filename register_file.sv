@@ -11,10 +11,14 @@ module register_file (
 );
 
     logic [31:0] reg_file [31:0];
+    int i;
 
-    always_ff @(posedge clk) begin
+    always_ff @(negedge clk or negedge rst_n) begin
         if (!rst_n) begin
-            reg_file <= '{default: 32'd0};
+            // Use standard integers for the loop index boundaries
+            for (i = 0; i < 32; i = i + 1) begin
+                reg_file[i] <= 32'd0;
+            end
         end else if (reg_write_en && (rd != 5'd0)) begin
             reg_file[rd] <= write_data;
         end

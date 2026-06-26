@@ -11,11 +11,12 @@ compile:
 	$(COMPILER) $(FLAGS) -o $(OUTPUT) $(SOURCES)
 
 run:
-	vvp $(OUTPUT) 
+	# Running simulation cleanly; testbench handles VCD generation
+	vvp $(OUTPUT)
 
 wave:
+	# Opens the generated wave traces in GTKWave
 	gtkwave $(WAVE_FILE) &
 
 clean:
-	rm -f $(OUTPUT) $(WAVE_FILE)
-
+	rm -f $(OUTPUT) $(WAVE_FILE) dump.vcd

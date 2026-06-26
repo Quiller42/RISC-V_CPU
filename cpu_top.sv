@@ -94,7 +94,7 @@ module cpu_top (
     );
 
     // Instantiate alu control
-    alu_control alu_control (
+    alu_control alu_ctrl (
         .funct3(instruction[14:12]),
         .funct7_bit5(instruction[30]),
         .alu_op(alu_op),

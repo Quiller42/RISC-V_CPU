@@ -25,4 +25,6 @@ always_comb begin
 
     // High if result is 0 for branch logic
     zero = (result == 32'b0);
+end
+
 endmodule

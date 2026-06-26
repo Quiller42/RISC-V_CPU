@@ -10,7 +10,7 @@ module instruction_memory (
         $readmemh("program.hex", rom_array);
     end
 
-    // Assign instruction to the current PC value (pc[32:2] is equivalent to dividing by 4 to match the pc)
-    assign instruction = rom_array[pc[32:2]];
+    // Assign instruction to the current PC value (pc[11:2] is equivalent to dividing by 4 to match the pc)
+    assign instruction = rom_array[pc[11:2]];
     
 endmodule
