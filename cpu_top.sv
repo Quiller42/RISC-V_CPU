@@ -6,6 +6,7 @@ module cpu_top (
     // Block linkers
     logic [31:0] current_pc;
     logic [31:0] pc_next;
+    logic [31:0] instruction;
 
     // Instantiate program register
     program_counter pc_reg (
@@ -21,6 +22,10 @@ module cpu_top (
         .pc_plus_4(pc_next)
     );
 
-    // Instruction memory
+    // Instantiate instruction memory
+    instruction_memory instr_mem (
+        .pc(current_pc),
+        .instruction(instruction)
+    );
 
 endmodule
